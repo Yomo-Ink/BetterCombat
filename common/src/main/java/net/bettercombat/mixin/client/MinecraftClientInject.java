@@ -442,7 +442,8 @@ public abstract class MinecraftClientInject implements MinecraftClient_BetterCom
 
     @Override
     public int getComboCount() {
-        return ((PlayerAttackProperties)player).getComboCount();
+        return 0;
+        // return ((PlayerAttackProperties)player).getComboCount();
     }
 
     @Override

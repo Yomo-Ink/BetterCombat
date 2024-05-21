@@ -86,7 +86,7 @@ public class PlayerAttackHelper {
         if (comboCount < 0) {
             comboCount = 0;
         }
-        int index = comboCount % attacks.length;
+        int index = comboCount;
         return new AttackSelection(attacks[index], new ComboState(index + 1, attacks.length));
     }
 
