@@ -14,7 +14,7 @@ public class BetterCombatKeybindings {
         feintKeyBinding = new KeyBinding(
                 "keybinds.bettercombat.feint",
                 InputUtil.Type.KEYSYM,
-                InputUtil.UNKNOWN_KEY.getCode(),
+                InputUtil.GLFW_KEY_R,
                 "Better Combat");
 
         toggleMineKeyBinding = new KeyBinding(
