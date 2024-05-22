@@ -3,6 +3,9 @@
   "item.held.two_handed": "Two-Handed",
   "keybinds.bettercombat.feint" : "Feint",
   "keybinds.bettercombat.toggle_mine_with_weapons" : "Toggle Mine with weapons",
+  "keybinds.bettercombat.slash" : "Slash",
+  "keybinds.bettercombat.slam" : "Slam",
+  "keybinds.bettercombat.stab" : "Stab",
   "hud.bettercombat.mine_with_weapons_on" : "Mine with weapons: Yes",
   "hud.bettercombat.mine_with_weapons_off" : "Mine with weapons: No",
 

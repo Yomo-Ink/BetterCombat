@@ -42,6 +42,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.List;
+import java.util.Random;
 
 import static net.minecraft.util.hit.HitResult.Type.BLOCK;
 
@@ -63,6 +64,7 @@ public abstract class MinecraftClientInject implements MinecraftClient_BetterCom
     private boolean isHarvesting = false;
     private String textToRender = null;
     private int textFade = 0;
+    private Random random = new Random();
 
     @Inject(method = "<init>", at = @At("TAIL"))
     private void postInit(RunArgs args, CallbackInfo ci) {
@@ -119,6 +121,17 @@ public abstract class MinecraftClientInject implements MinecraftClient_BetterCom
                 isHarvesting = true;
                 return;
             }
+
+            int comboCount = getComboCount();
+            if (BetterCombatKeybindings.slashKeyBinding.isPressed()) {
+                comboCount = random.nextInt(2);
+            } else if (BetterCombatKeybindings.slamKeyBinding.isPressed()) {
+                comboCount = 2;
+            } else if (BetterCombatKeybindings.stabKeyBinding.isPressed()) {
+                comboCount = 3;
+            }
+            setComboCount(comboCount);
+
             startUpswing(attributes);
             info.setReturnValue(false);
             info.cancel();
@@ -248,7 +261,7 @@ public abstract class MinecraftClientInject implements MinecraftClient_BetterCom
         upswingStack = player.getMainHandStack();
         float attackCooldownTicksFloat = PlayerAttackHelper.getAttackCooldownTicksCapped(player); // `getAttackCooldownProgressPerTick` should be called `getAttackCooldownLengthTicks`
         int attackCooldownTicks = Math.round(attackCooldownTicksFloat);
-        this.comboReset = Math.round(attackCooldownTicksFloat * BetterCombat.config.combo_reset_rate);
+        // this.comboReset = Math.round(attackCooldownTicksFloat * BetterCombat.config.combo_reset_rate);
         this.upswingTicks = Math.max(Math.round(attackCooldownTicksFloat * upswingRate), 1); // At least 1 upswing ticks
         this.lastSwingDuration = attackCooldownTicksFloat;
         this.itemUseCooldown = attackCooldownTicks; // Vanilla MinecraftClient property for compatibility
@@ -337,7 +350,7 @@ public abstract class MinecraftClientInject implements MinecraftClient_BetterCom
         cancelSwingIfNeeded();
         attackFromUpswingIfNeeded();
         updateTargetsIfNeeded();
-        resetComboIfNeeded();
+        // resetComboIfNeeded();
     }
 
     @Inject(method = "tick",at = @At("TAIL"))
@@ -397,7 +410,7 @@ public abstract class MinecraftClientInject implements MinecraftClient_BetterCom
             handler.onPlayerAttackStart(player, hand, targets, cursorTarget);
         });
 
-        setComboCount(getComboCount() + 1);
+        // setComboCount(getComboCount() + 1);
         if (!hand.isOffHand()) {
             lastAttacedWithItemStack = hand.itemStack();
         }

@@ -7,20 +7,20 @@ import me.shedaniel.autoconfig.annotation.ConfigEntry;
 @Config(name = "client")
 public class ClientConfig implements ConfigData {
     @ConfigEntry.Gui.Tooltip
-    public boolean isHoldToAttackEnabled = true;
+    public boolean isHoldToAttackEnabled = false;
     @ConfigEntry.Gui.Tooltip
-    public boolean isMiningWithWeaponsEnabled = true;
+    public boolean isMiningWithWeaponsEnabled = false;
     @ConfigEntry.Gui.Tooltip
     public boolean isSwingThruGrassEnabled = true;
     @ConfigEntry.Gui.Tooltip
     public boolean isAttackInsteadOfMineWhenEnemiesCloseEnabled = true;
     @ConfigEntry.Gui.Tooltip
-    public boolean isHighlightCrosshairEnabled = true;
+    public boolean isHighlightCrosshairEnabled = false;
     @ConfigEntry.ColorPicker
     @ConfigEntry.Gui.Tooltip
     public int hudHighlightColor = 0xFF0000;
     @ConfigEntry.Gui.Tooltip
-    public boolean isShowingArmsInFirstPerson = false;
+    public boolean isShowingArmsInFirstPerson = true;
     @ConfigEntry.Gui.Tooltip
     public boolean isShowingOtherHandFirstPerson = true;
     @ConfigEntry.Gui.Tooltip
