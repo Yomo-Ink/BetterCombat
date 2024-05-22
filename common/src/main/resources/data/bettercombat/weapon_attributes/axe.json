@@ -23,7 +23,7 @@
       },
       {
         "hitbox": "VERTICAL_PLANE",
-        "damage_multiplier": 1,
+        "damage_multiplier": 1.4,
         "angle": 90,
         "upswing": 0.5,
         "animation": "bettercombat:one_handed_slam",
@@ -34,7 +34,7 @@
       },
       {
         "hitbox": "FORWARD_BOX",
-        "damage_multiplier": 1,
+        "damage_multiplier": 0.6,
         "angle": 0,
         "upswing": 0.5,
         "animation": "bettercombat:one_handed_stab",

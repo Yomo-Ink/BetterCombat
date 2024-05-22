@@ -7,6 +7,15 @@
     "category": "trident",
     "attacks": [
       {
+        "animation": "bettercombat:one_handed_slash_horizontal_right",
+      },
+      {
+        "animation": "bettercombat:one_handed_slash_horizontal_left",
+      },
+      {
+        "animation": "bettercombat:one_handed_slam",
+      },
+      {
         "animation": "bettercombat:one_handed_stab"
       }
     ]
