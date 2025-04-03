@@ -1,3 +1,8 @@
+# 1.8.6
+
+- Fix fallback compat causing some crashes
+- Fix some sneaking related render glitches
+
 # 1.8.5
 
 - Add `javelin` keyword to fallback config #344
